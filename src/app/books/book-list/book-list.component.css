@@ -1,0 +1,14 @@
+th {
+    color: rgb(0, 0, 165);
+    background-color: rgb(93, 121, 150);
+}
+
+td {
+    color: rgb(92, 92, 221);
+    background-color: rgb(181, 204, 235);
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+}

@@ -1,0 +1,25 @@
+<form #revForm = "ngForm" (ngSubmit) = "submit(revForm)">
+    <label>Review:
+        <input required minlength="3" type = "text" name = "content" #content = "ngModel" [(ngModel)] = "review.content" />
+    </label>
+
+    <button [disabled] = "!revForm.form.valid" type = "submit">Add Review</button>
+</form>
+
+<div *ngIf = "!revForm.form.valid && !revForm.pristine">
+    <div *ngIf = "content.errors.required" class = "error">
+        Plz enter a review ;-;
+    </div>
+
+    <div *ngIf = "content.errors.minlength" class = "error">
+        Review must be at least three characters long!!
+    </div>
+
+</div>
+
+<!--Only show if *ngIf = TRUE-->
+<!--!Invalid && !Pristine = False     Hidden-->
+<!--!Invalid && !Dirty = True         Visible-->
+<!--!Valid && !Pristine = False       NOT POSSIBLE-->
+<!--!Valid && !Dirty = False          Hidden-->
+

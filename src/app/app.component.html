@@ -1,0 +1,7 @@
+<h1>Welcome to {{ title }}!</h1>
+<nav class = "link-effect">
+    <a routerLink="/" routerLinkActive="link-selected" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="/about" routerLinkActive="link-selected" >About</a>
+</nav>
+
+<router-outlet></router-outlet>

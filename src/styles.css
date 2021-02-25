@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1, .error {
+    text-align: center;
+}
+
+input {
+    line-height: 1.5em;
+    margin-right: 1em;
+}
+
+button {
+    line-height: 1.5em;
+}
+
+.error {
+    color: #722222;
+    background-color: #ffcccc;
+    padding: 0.75em;
+    border-radius: 0.25em;
+    width: 80%;
+    margin: auto;
+}
+
+input.ng-valid {
+    border-left: 5px solid #42A948;
+}
+
+input.ng-invalid {
+    border-left: 5px solid #a94442;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+}
