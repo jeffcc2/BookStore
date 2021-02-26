@@ -1,3 +1,4 @@
+import { LocationStrategy } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -5,8 +6,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NoImagePipe implements PipeTransform {
 
+  constructor(private locationStrategy: LocationStrategy) {};
+
   transform(value: string): string {
-    return value ? value : '/assets/images/NoImage.svg';
+    return value ? value : this.locationStrategy.getBaseHref() + 'assets/images/NoImage.svg';
   }
 
 }

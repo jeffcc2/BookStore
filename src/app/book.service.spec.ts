@@ -6,12 +6,13 @@ import { inject, tick, fakeAsync } from '@angular/core/testing';
 import { Book } from './models/book';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { ExpectedConditions } from 'protractor';
+import { environment } from '../environments/environment';
 
 describe('BookService', () => {
   let service: BookService;
   let httpTestingController: HttpTestingController;
   let testBooks: Book[] = [];
+  const serviceUrl = environment.serviceUrl;
 
   beforeEach(() => {
     testBooks = [{
@@ -43,7 +44,8 @@ describe('BookService', () => {
     let books: Book[];
 
     service.getBooks().subscribe(data => books = data);
-    const req = httpTestingController.expectOne('http://localhost:8080/BookService/jaxrs/books');
+    // const req = httpTestingController.expectOne('http://localhost:8080/BookService/jaxrs/books');
+    const req = httpTestingController.expectOne(serviceUrl);
 
     // Assert that the request is a GET
     expect(req.request.method).toEqual('GET');
@@ -63,7 +65,8 @@ describe('BookService', () => {
     const expected = new Book('A Wizard of EarthSea', 'Ursula K Le Guin', '', 3);
 
     service.addBook(expected).subscribe();
-    const req = httpTestingController.expectOne('http://localhost:8080/BookService/jaxrs/books');
+    // const req = httpTestingController.expectOne('http://localhost:8080/BookService/jaxrs/books');
+    const req = httpTestingController.expectOne(serviceUrl);
 
     // Assert that the request is a POST
     expect(req.request.method).toEqual('POST');
