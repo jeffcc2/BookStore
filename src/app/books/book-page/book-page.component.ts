@@ -18,8 +18,9 @@ export class BookPageComponent implements OnInit {
 
   addBook(book: Book) {
     this.bookService.addBook(book).subscribe(() => this.getBooks());
-   }
-   getBooks() {
+  }
+
+  getBooks() {
     this.bookService.getBooks().subscribe(data => this.books = data);
-   }
+  }
 }

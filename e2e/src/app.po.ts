@@ -12,4 +12,8 @@ export class AppPage {
   getAboutLink() {
     return element(by.cssContainingText('app-root a', 'About'));
   }
+
+  getReviewLink() {
+    return element(by.cssContainingText('app-root app-book-page app-book-list a', 'Design Patterns'));
+  }
 }
